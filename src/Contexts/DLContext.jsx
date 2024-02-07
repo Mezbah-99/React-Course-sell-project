@@ -1,6 +1,6 @@
 import { createContext, useReducer } from "react";
 
-export const DLContext = createContext("dark");
+export const DLContext = createContext();
 
 const initialState = {
   mode: localStorage.getItem('darkMode')?localStorage.getItem('darkMode'): "dark",

@@ -1,10 +1,38 @@
-import React from "react";
+import React, { useContext } from "react";
+import GoogleAndGit from "../GoogleAndGit/GoogleAndGit";
+import { AuthContext } from "../../Contexts/AuthContext";
+import toast from "react-hot-toast";
+import { useNavigate,useLocation } from "react-router-dom";
 
 const Login = () => {
+  const { logIn } = useContext(AuthContext);
+  
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/'
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const form = e.target 
+    const email = form.email.value 
+    const password = form.password.value
+    logIn(email,password)
+      .then(res => {
+        console.log(res)
+        form.reset()
+        toast.success("Login Successfully Done.")
+        
+        navigate(from, {replace: true})
+      }).catch((err) => {
+        const errorMessage = err.message;
+        // setError(errorMessage);
+        toast.error(errorMessage)
+      });
+  }
   return (
     <div className="mt-5 form-bg w-1/2 mx-auto p-5 text-themeColor rounded-lg">
       <h2 className="text-center text-4xl">Login Form</h2>
-      <form className="max-w-md mx-auto space-y-5 ">
+      <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-5 ">
         <div className="relative z-0 w-full mb-5 group">
           <input
             type="email"
@@ -45,6 +73,7 @@ const Login = () => {
           Submit
         </button>
       </form>
+      <GoogleAndGit/>
     </div>
   );
 };

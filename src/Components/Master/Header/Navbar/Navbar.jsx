@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { AuthContext } from "../../../../Contexts/AuthContext";
 
 const Navbar = () => {
   const location = useLocation();
 
-  const navStyle = "text-dark hover:underline dark:text-light p-3 rounded-lg";
+  const { user } = useContext(AuthContext);
+
+  const navStyle =
+    "lg:text-dark hover:underline dark:text-light p-3 rounded-lg";
   return (
     <ul className="lg:flex justify-center gap-2 ">
       <li>
@@ -57,26 +61,32 @@ const Navbar = () => {
           FAQ
         </Link>
       </li>
-      <li>
-        <Link
-          to="/login"
-          className={
-            location.pathname === "/login" ? navStyle + " active" : navStyle
-          }
-        >
-          Login
-        </Link>
-      </li>
-      <li>
-        <Link
-          to="/register"
-          className={
-            location.pathname === "/register" ? navStyle + " active" : navStyle
-          }
-        >
-          Register
-        </Link>
-      </li>
+      {!user && (
+        <li>
+          <Link
+            to="/login"
+            className={
+              location.pathname === "/login" ? navStyle + " active" : navStyle
+            }
+          >
+            <em>SIGN IN / UP</em>
+          </Link>
+        </li>
+      )}
+      {/* {!user && (
+        <li>
+          <Link
+            to="/register"
+            className={
+              location.pathname === "/register"
+                ? navStyle + " active"
+                : navStyle
+            }
+          >
+            Register
+          </Link>
+        </li>
+      )} */}
     </ul>
   );
 };

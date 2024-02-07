@@ -11,7 +11,7 @@ const Header = () => {
       <TopHeader />
       <div className="nav-section relative sm:flex justify-between items-center bg-white dark:bg-black text-light mt-1 px-2">
         <div className="logo lg:w-1/4 w-full">
-          <img className="h-[100px] sm:h[150px] mx-auto sm:mx-0" src={logo} alt="Logo" />
+          <Link to={"/"}><img className="cursor-pointer h-[100px] sm:h[150px] mx-auto sm:mx-0" src={logo} alt="Logo" /></Link>
         </div>
         <div className="navbar w-3/4 hidden lg:block">
           <Navbar />

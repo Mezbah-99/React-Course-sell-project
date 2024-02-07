@@ -1,9 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: 'class',
+  darkMode: "class",
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
+    "node_modules/flowbite-react/lib/esm/**/*.js",
   ],
   theme: {
     extend: {
@@ -16,14 +17,13 @@ export default {
         btnColor: "",
         textColor: "#fff",
         light: "#fff",
-        dark: "#000"
-
+        dark: "#000",
       },
-      backgroundColor:{
-        'flower': "url('/images/flower.jpg')",
-        'wood': "url('/images/wood.jpg')"
-      }
+      backgroundColor: {
+        flower: "url('/images/flower.jpg')",
+        wood: "url('/images/wood.jpg')",
+      },
     },
   },
-  plugins: [],
-}
+  plugins: [require("flowbite/plugin")],
+};

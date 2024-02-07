@@ -1,8 +1,36 @@
-import React from "react";
+import React, { useContext } from "react";
+import GoogleAndGit from "../GoogleAndGit/GoogleAndGit";
+import { AuthContext } from "../../Contexts/AuthContext";
+import toast from "react-hot-toast";
 
 const Register = () => {
+  const { createUser, updateUserName } = useContext(AuthContext);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const userName = form.userName.value;
+    const photoURL = form.image_url.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password, userName, photoURL);
+    createUser(email, password)
+      .then((res) => {
+        updateUserName(userName, photoURL);
+        toast.success("Registration successfully.");
+        console.log(res);
+        form.reset()
+      })
+      .catch((err) => {
+        const errorMessage = err.message;
+        // setError(errorMessage);
+        toast.error(errorMessage);
+      });
+  };
   return (
-    <div className="mt-5 form-bg w-1/2 mx-auto p-5 text-themeColor rounded-lg">
+    <div
+      onSubmit={handleSubmit}
+      className="mt-5 form-bg w-1/2 mx-auto p-5 text-themeColor rounded-lg"
+    >
       <h2 className="text-center text-4xl">Registration Form</h2>
       <form className="max-w-md mx-auto space-y-5 ">
         <div className="relative z-0 w-full mb-5 group">
@@ -15,7 +43,7 @@ const Register = () => {
             required
           />
           <label
-            htmlhtmlFor="userName"
+            htmlFor="userName"
             className="peer-focus:font-medium absolute text-md text-light  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-themeColor peer-focus:dark:text-light peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
           >
             User Name
@@ -80,6 +108,7 @@ const Register = () => {
           Submit
         </button>
       </form>
+      <GoogleAndGit />
     </div>
   );
 };

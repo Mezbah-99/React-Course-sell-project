@@ -8,6 +8,7 @@
       "author": "John Smith",
       "created_at": "2024-01-15",
       "price": 49.99,
+      "rating": 4.4,
       "course_details": {
         "level": "Beginner",
         "lessons": 10,
@@ -23,6 +24,7 @@
       "author": "Jane Doe",
       "created_at": "2024-01-21",
       "price": 59.99,
+      "rating": 4.9,
       "course_details": {
         "level": "Intermediate",
         "lessons": 8,
@@ -38,6 +40,7 @@
       "author": "Michael Johnson",
       "created_at": "2024-01-28",
       "price": 79.99,
+      "rating": 4.7,
       "course_details": {
         "level": "Intermediate",
         "lessons": 12,
@@ -53,6 +56,7 @@
       "author": "Emily Thompson",
       "created_at": "2024-02-02",
       "price": 69.99,
+      "rating": 4.4,
       "course_details": {
         "level": "Intermediate",
         "lessons": 8,
@@ -68,6 +72,7 @@
       "author": "David Williams",
       "created_at": "2024-02-04",
       "price": 99.99,
+      "rating": 4.5,
       "course_details": {
         "level": "Advanced",
         "lessons": 20,
@@ -83,6 +88,7 @@
       "author": "Sarah Davis",
       "created_at": "2024-02-05",
       "price": 39.99,
+      "rating": 4.3,
       "course_details": {
         "level": "Beginner",
         "lessons": 6,
@@ -98,6 +104,7 @@
       "author": "Robert Johnson",
       "created_at": "2024-02-05",
       "price": 59.99,
+      "rating": 4.2,
       "course_details": {
         "level": "Intermediate",
         "lessons": 10,
@@ -113,7 +120,8 @@
     "author": "Jennifer Smith",
     "created_at": "2024-02-05",
     "price": 89.99,
-    "course_details": {
+    "rating": 4.9,
+    "course_detais": {
       "level": "Intermediate",
       "lessons": 12,
       "duration": "6 weeks"
@@ -128,6 +136,7 @@
     "author": "Mark Thompson",
     "created_at": "2024-02-05",
     "price": 79.99,
+    "rating": 4.1,
     "course_details": {
       "level": "Intermediate",
       "lessons": 10,
@@ -143,6 +152,7 @@
     "author": "Jessica Davis",
     "created_at": "2024-02-05",
     "price": 49.99,
+    "rating": 4.7,
     "course_details": {
       "level": "Beginner",
       "lessons": 8,
@@ -158,6 +168,7 @@
     "author": "Kevin Johnson",
     "created_at": "2024-02-05",
     "price": 59.99,
+    "rating": 4.3,
     "course_details": {
       "level": "Intermediate",
       "lessons": 8,
@@ -173,6 +184,7 @@
     "author": "Alex Johnson",
     "created_at": "2024-02-05",
     "price": 69.99,
+    "rating": 4.1,
     "course_details": {
       "level": "Intermediate",
       "lessons": 10,
@@ -188,6 +200,7 @@
     "author": "Samantha Lee",
     "created_at": "2024-02-05",
     "price": 79.99,
+    "rating": 4.3,
     "course_details": {
       "level": "Advanced",
       "lessons": 12,
@@ -203,6 +216,7 @@
     "author": "Daniel Williams",
     "created_at": "2024-02-05",
     "price": 69.99,
+    "rating": 4.5,
     "course_details": {
       "level": "Intermediate",
       "lessons": 10,
@@ -218,6 +232,7 @@
     "author": "Michelle Thompson",
     "created_at": "2024-02-05",
     "price": 59.99,
+    "rating": 4.1,
     "course_details": {
       "level": "Beginner",
       "lessons": 8,
@@ -233,6 +248,7 @@
     "author": "Rachel Davis",
     "created_at": "2024-02-05",
     "price": 79.99,
+    "rating": 4.8,
     "course_details": {
       "level": "Intermediate",
       "lessons": 12,
@@ -248,6 +264,7 @@
     "author": "Andrew Johnson",
     "created_at": "2024-02-05",
     "price": 89.99,
+    "rating": 4.0,
     "course_details": {
       "level": "Advanced",
       "lessons": 10,
@@ -263,6 +280,7 @@
     "author": "Sophia Johnson",
     "created_at": "2024-02-05",
     "price": 49.99,
+    "rating": 4.6,
     "course_details": {
       "level": "Beginner",
       "lessons": 6,
@@ -278,6 +296,7 @@
     "author": "Olivia Smith",
     "created_at": "2024-02-05",
     "price": 59.99,
+    "rating": 4.5,
     "course_details": {
       "level": "Beginner",
       "lessons": 8,
@@ -293,6 +312,7 @@
     "author": "Daniel Johnson",
     "created_at": "2024-02-05",
     "price": 69.99,
+    "rating": 4.2,
     "course_details": {
       "level": "Intermediate",
       "lessons": 10,

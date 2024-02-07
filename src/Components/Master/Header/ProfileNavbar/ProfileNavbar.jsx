@@ -1,11 +1,21 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import DarkLight from "../DarkLight/DarkLight";
 import avatar from "/images/avatar.png";
 import { CiMenuFries } from "react-icons/ci";
 import Navbar from "../Navbar/Navbar";
+import { AuthContext } from "../../../../Contexts/AuthContext";
 
 const ProfileNavbar = () => {
   const [showNav, setShowNav] = useState(false);
+
+  const { user, logOut } = useContext(AuthContext);
+  
+  const handleLogout = () => {
+    logOut()
+      .then((res) => {
+        toast.success("Logout successfully Done.")
+      })
+  }
 
   // DropDown hidden when click outside
   const popupRef = useRef(null);
@@ -34,20 +44,21 @@ const ProfileNavbar = () => {
           <DarkLight />
         </div>
         <div className="profile group rounded-full w-[100px]">
-        <img
-            className="w-16 cursor-pointer"
-            src={avatar}
+          <img
+            className="w-16 h-16 cursor-pointer rounded-full"
+            src={user?.photoURL || avatar}
             alt="avatar"
           />
-          <div className="profileDropDown hidden group-hover:block">
+          <div className="profileDropDown hidden group-hover:block cursor-pointer text-black">
             <ul>
-              <li>Mezbah</li>
-              <li>email@gmail.com</li>
-              <li>Logout</li>
+              <li>{user?.displayName || "Untitle"}</li>
+              <li>{user?.email || "email@gmail.com"}</li>
+              <li onClick={handleLogout} className="border-2 border-red-500 rounded-xl my-3 text-center p-2 text-black hover:bg-red-500">
+                Logout
+              </li>
             </ul>
           </div>
         </div>
-          
       </div>
       <div ref={popupRef}>
         <div>

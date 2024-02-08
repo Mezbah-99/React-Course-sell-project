@@ -52,17 +52,6 @@ p{
     z-index: 99;
 }
 
-.profileDropDown{
-    position: absolute;
-    background: rgb(234, 221, 32);
-    padding: 10px;
-    border-radius: 10px;
-    width: 300px;
-    z-index: 999;
-    top: 80px;
-    right: 0;
-    z-index: 999;
-}
 
 .form-bg{
     background: rgb(0, 0, 0,.7);

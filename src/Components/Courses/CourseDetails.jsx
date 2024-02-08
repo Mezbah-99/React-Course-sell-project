@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import PdfCourseDetails from "./PdfCourseDetails";
+import { Button } from "flowbite-react";
+import download from '/images/download.gif'
 
 const CourseDetails = () => {
+  const [openModal, setOpenModal] = useState(false);
+
   const { id } = useParams();
   const [allCourses, setCourses] = useState([]);
   const [courseDetails, setCourseDetails] = useState({});
@@ -14,7 +19,6 @@ const CourseDetails = () => {
     const data = allCourses.find((course) => course.id == id);
     setCourseDetails(data);
   }, [allCourses]);
-  // console.log(courseDetails?.course_details['level']);
   return (
     <div className="bg-white dark:bg-gray-300 shadow-lg rounded-lg p-6">
       <div className="flex flex-col mb-6">
@@ -22,13 +26,11 @@ const CourseDetails = () => {
           <img
             src={courseDetails?.image}
             alt="Course Image"
-            className="object-cover w-full h-full"
+            className="object-cover mx-auto h-[400px] rounded-lg"
           />
         </div>
         <div className="ml-5 mt-5">
-          <h2 className="text-2xl font-bold mb-1">
-            {courseDetails?.title}
-          </h2>
+          <h2 className="text-2xl font-bold mb-1">{courseDetails?.title}</h2>
           <p className="text-gray-600">{courseDetails?.author}</p>
         </div>
       </div>
@@ -56,13 +58,16 @@ const CourseDetails = () => {
           <li>Utilize email marketing to drive customer engagement</li>
         </ul>
       </div>
-      <div className="flex justify-end mt-6">
-        <Link to={"/checkout"} className="bg-themeColor text-white px-4 py-2 rounded-lg mr-2">
+      <div className="flex justify-end mt-6 items-center">
+        <Link
+          to={"/checkout"}
+          className="bg-themeColor text-white px-4 py-2 rounded-lg mr-2"
+        >
           Get premimum access
         </Link>
-        {/* <button className="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg">
-          Add to Wishlist
-        </button> */}
+
+        <button className="bg-light border-blue-600 flex items-center justify-center gap-3 border-2 px-2 rounded-lg hover:border-themeColor" onClick={() => setOpenModal(true)}>Download PDF <span><img src={download} alt="" /></span></button>
+        <PdfCourseDetails openModal={openModal} setOpenModal={setOpenModal} courseDetails={courseDetails} />
       </div>
     </div>
   );

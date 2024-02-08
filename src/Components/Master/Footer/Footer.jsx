@@ -18,7 +18,7 @@ const Footer = () => {
                 <span className="flex items-center">
                   <img
                     src={footerLogo}
-                    className="w-[300px] h-[200px]"
+                    className="w-[300px] h-[200px] mx-auto"
                     alt="Footer Logo"
                   />
                 </span>

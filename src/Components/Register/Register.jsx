@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import GoogleAndGit from "../GoogleAndGit/GoogleAndGit";
 import { AuthContext } from "../../Contexts/AuthContext";
 import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const { createUser, updateUserName } = useContext(AuthContext);
@@ -18,7 +19,7 @@ const Register = () => {
         updateUserName(userName, photoURL);
         toast.success("Registration successfully.");
         console.log(res);
-        form.reset()
+        form.reset();
       })
       .catch((err) => {
         const errorMessage = err.message;
@@ -29,7 +30,7 @@ const Register = () => {
   return (
     <div
       onSubmit={handleSubmit}
-      className="mt-5 form-bg w-1/2 mx-auto p-5 text-themeColor rounded-lg"
+      className="mt-5 form-bg md:w-1/2 mx-auto p-5 text-themeColor rounded-lg"
     >
       <h2 className="text-center text-4xl">Registration Form</h2>
       <form className="max-w-md mx-auto space-y-5 ">
@@ -99,6 +100,11 @@ const Register = () => {
           >
             Input image URL
           </label>
+        </div>
+        <div>
+          <Link to={"/login"} className="underline hover:text-themeColor3">
+            Already Have an account
+          </Link>
         </div>
 
         <button

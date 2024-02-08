@@ -79,11 +79,11 @@ const Navbar = () => {
               location.pathname === "/login" ? navStyle + " active" : navStyle
             }
           >
-            <em>SIGN IN / UP</em>
+            Login
           </Link>
         </li>
       )}
-      {/* {!user && (
+      {!user && (
         <li>
           <Link
             to="/register"
@@ -96,7 +96,7 @@ const Navbar = () => {
             Register
           </Link>
         </li>
-      )} */}
+      )}
     </ul>
   );
 };

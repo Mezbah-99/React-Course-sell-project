@@ -4,15 +4,15 @@ import Main from "./Components/Layout/Main";
 import About from "./Components/About/About";
 import Error from "./Components/Layout/Error";
 import { useToggleContext } from "./Hooks/useToggle";
-// import Login from "./Components/Login/Login";
-// import Register from "./Components/Register/Register";
+import Login from "./Components/Login/Login";
+import Register from "./Components/Register/Register";
 import Home from "./Components/Home/Home";
 import Courses from "./Components/Courses/Courses";
 import Faq from "./Components/Faq/Faq";
 import RegLog from "./Components/RegLog/RegLog";
 import Contact from "./Components/Contact/Contact";
 import CourseDetails from "./Components/Courses/CourseDetails";
-import toast, { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from "react-hot-toast";
 import PrivateRoute from "./Components/Route/PrivateRoute";
 import Checkout from "./Components/Checkout/Checkout";
 import Blog from "./Components/Blog/Blog";
@@ -25,8 +25,7 @@ function App() {
       children: [
         {
           path: "/",
-          element: <PrivateRoute><Home /></PrivateRoute>,
-          loader: async () => await fetch("fakeData.json"),
+          element: <Home />,
         },
         {
           path: "/about",
@@ -34,8 +33,11 @@ function App() {
         },
         {
           path: "/courses",
-          element: <PrivateRoute><Courses /></PrivateRoute>,
-          loader: async () => await fetch("fakeData.json"),
+          element: (
+            <PrivateRoute>
+              <Courses />
+            </PrivateRoute>
+          ),
         },
         {
           path: "/faq",
@@ -43,11 +45,11 @@ function App() {
         },
         {
           path: "/login",
-          element: <RegLog />,
+          element: <Login />,
         },
         {
           path: "/register",
-          element: <RegLog />,
+          element: <Register />,
         },
         {
           path: "*",
@@ -63,12 +65,19 @@ function App() {
         },
         {
           path: "/checkout",
-          element: <Checkout />,
+          element: (
+            <PrivateRoute>
+              <Checkout />
+            </PrivateRoute>
+          ),
         },
         {
           path: "/course-details/:id",
-          element: <PrivateRoute><CourseDetails /></PrivateRoute>,
-          // loader: async ()=> await fetch('fakeData.json')
+          element: (
+            <PrivateRoute>
+              <CourseDetails />
+            </PrivateRoute>
+          ),
         },
       ],
     },

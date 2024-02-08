@@ -4,14 +4,17 @@ import App from "./App.jsx";
 import "./index.css";
 import { DLContextProvider } from "./Contexts/DLContext.jsx";
 import { AuthContextProvider } from "./Contexts/AuthContext.jsx";
+import { CourseContextProvider } from "./Contexts/CoursesContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <AuthContextProvider>
-      <DLContextProvider>
-        <App />
-        {/* <App /> */}
-      </DLContextProvider>
-    </AuthContextProvider>
+    <CourseContextProvider>
+      <AuthContextProvider>
+        <DLContextProvider>
+          <App />
+          {/* <App /> */}
+        </DLContextProvider>
+      </AuthContextProvider>
+    </CourseContextProvider>
   </React.StrictMode>
 );

@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import GoogleAndGit from "../GoogleAndGit/GoogleAndGit";
 import { AuthContext } from "../../Contexts/AuthContext";
 import toast from "react-hot-toast";
-import { useNavigate,useLocation } from "react-router-dom";
+import { useNavigate,useLocation, Link } from "react-router-dom";
 
 const Login = () => {
   const { logIn } = useContext(AuthContext);
@@ -30,7 +30,7 @@ const Login = () => {
       });
   }
   return (
-    <div className="mt-5 form-bg w-1/2 mx-auto p-5 text-themeColor rounded-lg">
+    <div className="mt-5 form-bg md:w-1/2 mx-auto p-5 text-themeColor rounded-lg">
       <h2 className="text-center text-4xl">Login Form</h2>
       <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-5 ">
         <div className="relative z-0 w-full mb-5 group">
@@ -65,7 +65,7 @@ const Login = () => {
             Password
           </label>
         </div>
-
+        <div><Link to={"/register"} className="underline hover:text-themeColor3">Create a new account</Link></div>
         <button
           type="submit"
           className="text-light bg-themeColor hover:bg-themeColor2 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-themeColor2 dark:hover:bg-themeColor dark:focus:ring-themeColor2"

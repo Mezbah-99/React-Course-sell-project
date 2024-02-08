@@ -4,18 +4,19 @@ import avatar from "/images/avatar.png";
 import { CiMenuFries } from "react-icons/ci";
 import Navbar from "../Navbar/Navbar";
 import { AuthContext } from "../../../../Contexts/AuthContext";
+import { Dropdown } from "flowbite-react";
+import { Link } from "react-router-dom";
 
 const ProfileNavbar = () => {
   const [showNav, setShowNav] = useState(false);
 
   const { user, logOut } = useContext(AuthContext);
-  
+
   const handleLogout = () => {
-    logOut()
-      .then((res) => {
-        toast.success("Logout successfully Done.")
-      })
-  }
+    logOut().then((res) => {
+      toast.success("Logout successfully Done.");
+    });
+  };
 
   // DropDown hidden when click outside
   const popupRef = useRef(null);
@@ -37,27 +38,47 @@ const ProfileNavbar = () => {
   // ref={popupRef} use in current DropDown div
   // Dropdown program End
   return (
-    <div className="flex items-center justify-between gap-3 pb-2 overflow-hidden">
+    <div className="flex items-center justify-between gap-3 pb-2">
       <div className="flex justify-center items-center gap-5 ml-2">
-        {" "}
         <div className="darkAndLight">
           <DarkLight />
         </div>
-        <div className="profile group rounded-full w-[100px]">
+        <div className="profile group rounded-full w-[100px] relative">
           <img
-            className="w-16 h-16 cursor-pointer rounded-full"
+            className="w-16 h-16 cursor-pointer rounded-full "
             src={user?.photoURL || avatar}
             alt="avatar"
           />
-          <div className="profileDropDown hidden group-hover:block cursor-pointer text-black">
-            <ul>
-              <li>{user?.displayName || "Untitle"}</li>
-              <li>{user?.email || "email@gmail.com"}</li>
-              <li onClick={handleLogout} className="border-2 border-red-500 rounded-xl my-3 text-center p-2 text-black hover:bg-red-500">
-                Logout
-              </li>
-            </ul>
-          </div>
+
+          <Dropdown
+            style={{
+              background: "transparent",
+              position: "absolute",
+              top: "0",
+              outline: "none",
+              border: "0",
+              opacity: 0,
+              padding: "15px"
+            }}
+            label=""
+            dismissOnClick={false}
+          >
+            <Dropdown.Item>Profile</Dropdown.Item>
+            <Dropdown.Item>{user?.displayName || "Please Log In"}</Dropdown.Item>
+            <Dropdown.Item>{user?.email || "email@gmail.com"}</Dropdown.Item>
+            {user ? 
+            <Dropdown.Item><span
+            onClick={handleLogout}
+            className="w-full dark:text-light border-2 border-red-500 rounded-xl my-3 text-center p-2 text-black hover:bg-red-500"
+          >
+            Logout
+          </span></Dropdown.Item>: 
+          <Dropdown.Item><Link to={"/login"}
+          className="w-full dark:text-light border-2 border-themeColor rounded-xl my-3 text-center p-2 text-black hover:bg-themeColor3"
+        >
+          <em>SIGN IN</em>
+        </Link></Dropdown.Item>}
+          </Dropdown>
         </div>
       </div>
       <div ref={popupRef}>

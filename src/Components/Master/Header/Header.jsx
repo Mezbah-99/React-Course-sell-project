@@ -1,7 +1,7 @@
 import React from "react";
 import TopHeader from "./TopHeader";
 import logo from "/images/logo.png";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import ProfileNavbar from "./ProfileNavbar/ProfileNavbar";
 import Navbar from "./Navbar/Navbar";
 

@@ -2,3 +2,15 @@
 1) https://www.udemy.com/course/machinelearning/
 2) https://preview.themeforest.net/item/saga-business-consulting-wordpress-theme/full_screen_preview/49635209?_ga=2.198301484.2051845229.1707113650-187593243.1707113650
 for button and circle
+
+
+.env
+VITE_APIKEY=""
+VITE_AUTHDOMAIN=""
+VITE_PROJECTID=""
+VITE_STORAGEBUCKET=""
+VITE_MESSAGINGSENDERID=""
+VITE_APPID=""
+
+
+Live Link: https://coder-value-city.web.app

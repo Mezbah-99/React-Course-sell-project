@@ -14,6 +14,8 @@ import Contact from "./Components/Contact/Contact";
 import CourseDetails from "./Components/Courses/CourseDetails";
 import toast, { Toaster } from 'react-hot-toast';
 import PrivateRoute from "./Components/Route/PrivateRoute";
+import Checkout from "./Components/Checkout/Checkout";
+import Blog from "./Components/Blog/Blog";
 
 function App() {
   const router = createBrowserRouter([
@@ -54,6 +56,14 @@ function App() {
         {
           path: "/contact",
           element: <Contact />,
+        },
+        {
+          path: "/blog",
+          element: <Blog />,
+        },
+        {
+          path: "/checkout",
+          element: <Checkout />,
         },
         {
           path: "/course-details/:id",

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const CourseDetails = () => {
   const { id } = useParams();
@@ -16,7 +16,7 @@ const CourseDetails = () => {
   }, [allCourses]);
   // console.log(courseDetails?.course_details['level']);
   return (
-    <div className="bg-white shadow-lg rounded-lg p-6">
+    <div className="bg-white dark:bg-gray-300 shadow-lg rounded-lg p-6">
       <div className="flex flex-col mb-6">
         <div className="rounded-lg overflow-hidden">
           <img
@@ -57,12 +57,12 @@ const CourseDetails = () => {
         </ul>
       </div>
       <div className="flex justify-end mt-6">
-        <button className="bg-blue-500 text-white px-4 py-2 rounded-lg mr-2">
-          Enroll Now
-        </button>
-        <button className="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg">
+        <Link to={"/checkout"} className="bg-themeColor text-white px-4 py-2 rounded-lg mr-2">
+          Get premimum access
+        </Link>
+        {/* <button className="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg">
           Add to Wishlist
-        </button>
+        </button> */}
       </div>
     </div>
   );

@@ -43,6 +43,16 @@ const Navbar = () => {
       </li>
       <li>
         <Link
+          to="/blog"
+          className={
+            location.pathname === "/blog" ? navStyle + " active" : navStyle
+          }
+        >
+          Blog
+        </Link>
+      </li>
+      <li>
+        <Link
           to="/contact"
           className={
             location.pathname === "/contact" ? navStyle + " active" : navStyle

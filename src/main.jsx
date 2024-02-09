@@ -12,7 +12,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <AuthContextProvider>
         <DLContextProvider>
           <App />
-          {/* <App /> */}
         </DLContextProvider>
       </AuthContextProvider>
     </CourseContextProvider>
